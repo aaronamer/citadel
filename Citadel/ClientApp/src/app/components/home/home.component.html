@@ -1,0 +1,22 @@
+<h1 class="mb-5">Citadel Coding Assessment</h1>
+
+<div *ngIf="submitSuccess === false" class="alert alert-danger" role="alert">
+  An error occurred adding your name.  Please try again.
+</div>
+<div *ngIf="submitSuccess === true" class="alert alert-success" role="alert">
+  Thank you {{lastNameSubmitted}}
+</div>
+
+<form [formGroup]="nameForm" (ngSubmit)="onSubmit()">
+  <div class="card">
+    <div class="card-body">
+      <p class="mb-3">Please enter your name in the textbox below.</p>
+      <label for="nameField" class="form-label fw-bold">Name</label>
+      <input type="text" formControlName="nameField" class="form-control" [ngClass]="{ 'is-invalid': isSubmitted && nameField.errors }" aria-label="Enter name" placeholder="Enter name">
+      <div *ngIf="isSubmitted && nameField.errors" class="invalid-feedback">
+        <div *ngIf="nameField.errors.required || nameField.errors.allWhiteSpace">Please enter your name</div>
+      </div>
+      <button type="submit" class="mt-3 btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
