@@ -47,6 +47,21 @@ namespace Citadel.Tests
         }
 
         [TestMethod]
+        public void Ensure_Whitspace_Name_Returns_Bad_Response()
+        {
+            var namesRespository = new Mock<INamesRepository>();
+            namesRespository.Setup(x => x.Add(It.IsAny<string>()));
+
+            var controller = new NamesController(namesRespository.Object, _logger);
+
+            var response = controller.Post(new Models.NameModel { Name = "   " });
+            var badRequestResponse = response as BadRequestObjectResult;
+
+            Assert.IsNotNull(badRequestResponse);
+            Assert.AreEqual(400, badRequestResponse.StatusCode);
+        }
+
+        [TestMethod]
         public void Ensure_Add_Name_Succeeds_When_Name_Not_Empty()
         {
             const string name = "Aaron";
