@@ -29,3 +29,14 @@ The below libraries are used in the API test project (Citadel.Tests).
 ## Angular Libraries  
   
 The Angular application makes use of Bootstrap 5.2.0.
+  
+## Running Angular Tests  
+1.  Open the command prompt  
+2.  In the repository, change to the folder [repository]/Citadel/ClientApp  
+3.  Type "ng test" press the enter key  
+  
+## Running API Unit Tests  
+1.  Open the solution in Visual Studio  
+2.  From the menu select Test -> Run All Tests  
+  
+![image](https://user-images.githubusercontent.com/1416218/214462496-ee5ce0ce-4a02-41ea-86c1-0f3ccfcbc1da.png)
