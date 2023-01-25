@@ -39,4 +39,4 @@ The Angular application makes use of Bootstrap 5.2.0.
 1.  Open the solution in Visual Studio  
 2.  From the menu select Test -> Run All Tests  
   
-![image](https://user-images.githubusercontent.com/1416218/214462496-ee5ce0ce-4a02-41ea-86c1-0f3ccfcbc1da.png)
+![image](https://user-images.githubusercontent.com/1416218/214462729-6e52f21f-8ae5-48dd-9588-f1bd83ef74a4.png)
