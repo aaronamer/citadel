@@ -35,6 +35,8 @@ The Angular application makes use of Bootstrap 5.2.0.
 2.  In the repository, change to the folder [repository]/Citadel/ClientApp  
 3.  Type "ng test" press the enter key  
   
+![image](https://user-images.githubusercontent.com/1416218/214466379-bad3aab5-397f-44cc-9f12-364d68ee24a8.png)
+  
 ## Running API Unit Tests  
 1.  Open the solution in Visual Studio  
 2.  From the menu select Test -> Run All Tests  
