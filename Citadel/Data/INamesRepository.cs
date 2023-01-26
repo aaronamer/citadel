@@ -2,6 +2,6 @@
 {
     public interface INamesRepository
     {
-        void Add(string name);
+        Task Add(string name);
     }
 }

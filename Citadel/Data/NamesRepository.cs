@@ -11,7 +11,7 @@ namespace Citadel.Data
             _repository = repository;
         }
 
-        public void Add(string name)
+        public async Task Add(string name)
         {
             var model = new NameModel
             {
@@ -19,7 +19,7 @@ namespace Citadel.Data
             };
 
             _repository.Names.Add(model);
-            _repository.SaveChanges();
+            await _repository.SaveChangesAsync();
         }
     }
 }

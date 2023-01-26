@@ -19,7 +19,7 @@ namespace Citadel.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(NameModel model)
+        public async Task<IActionResult> Post(NameModel model)
         {
             if (!ModelState.IsValid || string.IsNullOrWhiteSpace(model?.Name))
             {
@@ -29,7 +29,7 @@ namespace Citadel.Controllers
 
             try
             {
-                _repository.Add(model.Name);
+                await _repository.Add(model.Name);
                 _logger.LogInformation($"Received request from {model.Name}");
             }
             catch (Exception exception)
