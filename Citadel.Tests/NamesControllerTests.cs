@@ -17,14 +17,14 @@ namespace Citadel.Tests
         }
 
         [TestMethod]
-        public void Ensure_Null_Name_Returns_Bad_Response()
+        public async Task Ensure_Null_Name_Returns_Bad_Response()
         {
             var namesRespository = new Mock<INamesRepository>();
             namesRespository.Setup(x => x.Add(It.IsAny<string>()));
 
             var controller = new NamesController(namesRespository.Object, _logger);
 
-            var response = controller.Post(new Models.NameModel { Name = null! });
+            var response = await controller.Post(new Models.NameModel { Name = null! });
             var badRequestResponse = response as BadRequestObjectResult;
 
             Assert.IsNotNull(badRequestResponse);
@@ -32,14 +32,14 @@ namespace Citadel.Tests
         }
 
         [TestMethod]
-        public void Ensure_Empty_Name_Returns_Bad_Response()
+        public async Task Ensure_Empty_Name_Returns_Bad_Response()
         {
             var namesRespository = new Mock<INamesRepository>();
             namesRespository.Setup(x => x.Add(It.IsAny<string>()));
 
             var controller = new NamesController(namesRespository.Object, _logger);
 
-            var response = controller.Post(new Models.NameModel { Name = string.Empty });
+            var response = await controller.Post(new Models.NameModel { Name = string.Empty });
             var badRequestResponse = response as BadRequestObjectResult;
 
             Assert.IsNotNull(badRequestResponse);
@@ -47,14 +47,14 @@ namespace Citadel.Tests
         }
 
         [TestMethod]
-        public void Ensure_Whitspace_Name_Returns_Bad_Response()
+        public async Task Ensure_Whitspace_Name_Returns_Bad_Response()
         {
             var namesRespository = new Mock<INamesRepository>();
             namesRespository.Setup(x => x.Add(It.IsAny<string>()));
 
             var controller = new NamesController(namesRespository.Object, _logger);
 
-            var response = controller.Post(new Models.NameModel { Name = "   " });
+            var response = await controller.Post(new Models.NameModel { Name = "   " });
             var badRequestResponse = response as BadRequestObjectResult;
 
             Assert.IsNotNull(badRequestResponse);
@@ -62,7 +62,7 @@ namespace Citadel.Tests
         }
 
         [TestMethod]
-        public void Ensure_Add_Name_Succeeds_When_Name_Not_Empty()
+        public async Task Ensure_Add_Name_Succeeds_When_Name_Not_Empty()
         {
             const string name = "Aaron";
 
@@ -71,7 +71,7 @@ namespace Citadel.Tests
 
             var controller = new NamesController(namesRespository.Object, _logger);
 
-            var response = controller.Post(new Models.NameModel { Name = name });
+            var response = await controller.Post(new Models.NameModel { Name = name });
             var okResponse = response as OkResult;
             
             Assert.IsNotNull(okResponse);
